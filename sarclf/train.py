@@ -75,7 +75,7 @@ def run_mlph(modified, h):
     X_train, y_train = make_mlph_data(modified=modified, h=h)
     y_train = list(y_train)
     X_train, X_test, y_train, y_test = \
-        train_test_split(X_train, y_train, test_size=0.20, random_state=42)
+        train_test_split(X_train, y_train, test_size=0.20, random_state=0)
     return X_train, X_test, y_train, y_test
 
 
