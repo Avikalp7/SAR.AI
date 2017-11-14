@@ -35,7 +35,7 @@ def classify_image(image_path, modified, h, clf):
     labels = labels.reshape((textures.shape[0], textures.shape[1])).T
     clf_image = skimage.color.label2rgb(labels, colors=['green', 'yellow', 'red', 'blue'])
     start = 'clf_image' if not modified else 'clf_image_modified'
-    filename = utils.find_filename_iteratively(start=start, end='.png', dir_path='./')
+    filename = utils.find_filename_iteratively(start=start, file_path_suffix='.png', dir_path='./')
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         skimage.io.imsave(filename, clf_image)
