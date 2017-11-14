@@ -112,8 +112,8 @@ def mlph_modified(data, h=7, t=_DEFAULT_THRESHOLD):
 
     # Data pre-processing and preparation
     data_centered = data[
-                    int((h - 1) / 2): H - int((h - 1) / 2),
-                    int((h - 1) / 2): W - int((h - 1) / 2),
+                        int((h - 1) / 2): H - int((h - 1) / 2),
+                        int((h - 1) / 2): W - int((h - 1) / 2),
                     ]
 
     try:
