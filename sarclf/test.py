@@ -1,3 +1,6 @@
+"""Functions to test SAR image classification label accuracy for images.
+"""
+
 from __future__ import division
 from __future__ import print_function
 
