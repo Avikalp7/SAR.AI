@@ -1,2 +1,4 @@
-# SAR_classification
-Implementation of modified Multi-Level Pattern Histogram for SAR image classification
+# SAR.AI
+
+Modified Multi-Level Pattern Histograms (MLPH) for SAR image classification.
+
