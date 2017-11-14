@@ -183,6 +183,8 @@ def mlph(data, h=7, t=_DEFAULT_THRESHOLD):
                             math.log(segment_length, 2) + 1)) - 1] += 1
                 texture = texture.reshape(-1,)
                 pixel_textures[i - 1, j - 1, :] = texture
+
         print("Completed %d of %d iterations for current image." % (n, len(t)))
+
     print("\nCompleted MLPH computation for current image.")
     return pixel_textures, H_rep, W_rep

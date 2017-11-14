@@ -19,7 +19,6 @@ import numpy as np
 from scipy.ndimage import measurements
 import scipy.misc
 
-
 _DEFAULT_THRESHOLD = [3, 8, 16, 32, 64]
 _FOUR_CONNECTIVITY = np.array([[0, 1, 0],
                                [1, 1, 1],
@@ -56,7 +55,7 @@ def read_img(image_name='sar1.tif'):
 
     image_input_matrix = scipy.misc.imread(image_name, mode='L')
     npix = 200
-    image_input_matrix = image_input_matrix[119:120+npix, 119:120+npix]
+    image_input_matrix = image_input_matrix[119:120 + npix, 119:120 + npix]
     return image_input_matrix
 
 
@@ -182,8 +181,12 @@ def mlph_modified(data, h=7, t=_DEFAULT_THRESHOLD):
                         segment_length = np.where(L == segments[k])[0].size
                         texture[(n - 1) * 3 * b + 2 * b + int(math.floor(
                             math.log(segment_length, 2) + 1)) - 1] += 1
-                texture = texture.reshape(-1,)
-                pixel_textures[i - 1, j - 1, :] = np.append(texture, [int(data_centered[j-1, i-1]/40)])
+                texture = texture.reshape(-1, )
+
+                pixel_textures[i - 1, j - 1, :] = np.append(texture, [
+                    int(data_centered[j - 1, i - 1] / 40)])
+
         print("Completed %d of %d iterations for current image." % (n, len(t)))
+
     print("\nCompleted MLPH computation for current image.")
     return pixel_textures, H_rep, W_rep
