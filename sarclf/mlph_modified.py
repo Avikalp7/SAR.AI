@@ -1,9 +1,9 @@
 """Multilevel Local Pattern Histogram for SAR Image Classification.
 
-Image Processing Term Project:
-    Avikalp Srivastava (14CS10008)
-    Jaikrishna Chaparala (14CS10011)
-    Madhav Datt (14CS30015)
+Modification on the MLPH computation algorithm to account for similar relative
+distributions of pixel intensities for very high (dense urban regions) and very
+low intensity (water bodies) regions. The proposed modification significantly
+improves classification accuracy in test cases with multiple region classes.
 
 Based on published research by:
 Dai, Dengxin, Wen Yang, and Hong Sun. "Multilevel local pattern histogram for
@@ -54,8 +54,11 @@ def read_img(image_name='sar1.tif'):
     """
 
     image_input_matrix = scipy.misc.imread(image_name, mode='L')
-    npix = 200
-    image_input_matrix = image_input_matrix[119:120 + npix, 119:120 + npix]
+    num_pixels = 200
+    image_input_matrix = image_input_matrix[
+                            119:120 + num_pixels,
+                            119:120 + num_pixels
+                         ]
     return image_input_matrix
 
 
